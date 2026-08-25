@@ -1,4 +1,6 @@
-# Claude API client
+# AI Tutor
+
+A guided teacher chat application powered by Claude. The assistant helps learners reason through questions step by step instead of simply giving answers.
 
 Install the Anthropic SDK:
 
@@ -12,13 +14,13 @@ Set the API key without putting it in source control. In PowerShell:
 $env:ANTHROPIC_API_KEY = "your-rotated-key"
 ```
 
-Use the client:
+Use the local Python client:
 
 ```python
 from claude_client import ClaudeClient
 
 claude = ClaudeClient()
-answer = claude.ask("Explain API testing in one paragraph.")
+answer = claude.ask("Help me understand fractions step by step.")
 print(answer)
 ```
 

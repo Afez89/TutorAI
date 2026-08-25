@@ -2,42 +2,14 @@
 
 from __future__ import annotations
 
-from datetime import datetime
 import os
 from typing import Any
 
 from anthropic import Anthropic
-from anthropic.types import ToolParam
 from dotenv import load_dotenv
 
 
 load_dotenv()
-
-
-def get_current_datetime(date_format: str = "%Y-%m-%d %H:%M:%S") -> str:
-    """Return the current date and time using the requested format."""
-    if not date_format:
-        raise ValueError("date_format cannot be empty")
-    return datetime.now().strftime(date_format)
-
-
-get_current_datetime_schema = ToolParam(
-    {
-        "name": "get_current_datetime",
-        "description": "Returns the current date and time formatted according to the specified format",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "date_format": {
-                    "type": "string",
-                    "description": "A string specifying the format of the returned datetime. Uses Python's strftime format codes.",
-                    "default": "%Y-%m-%d %H:%M:%S",
-                }
-            },
-            "required": [],
-        },
-    }
-)
 
 
 class ClaudeClient:
