@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e9">
+  <title>Studyroom | Teacher chat</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Lesson context">
+      <div class="brand-mark" aria-hidden="true">s<span>/</span>r</div>
+      <div class="sidebar-copy">
+        <p class="eyebrow">STUDYROOM 01</p>
+        <h1>Make room<br>to think.</h1>
+        <p class="intro">A patient learning space for questions, useful mistakes, and the next small breakthrough.</p>
+      </div>
+      <div class="context-block">
+        <p class="eyebrow">TODAY'S MODE</p>
+        <div class="mode-row"><span class="mode-dot"></span><span>Guided discovery</span></div>
+        <p class="context-note">Your teacher will ask questions, offer hints, and help you build the answer.</p>
+      </div>
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span>Session is private</span>
+      </div>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">YOUR TEACHER</p>
+          <h2>Open office hours</h2>
+        </div>
+        <button class="clear-button" id="clear-chat" type="button">Clear chat <span aria-hidden="true">x</span></button>
+      </header>
+
+      <section class="conversation" id="conversation" aria-live="polite">
+        <div class="welcome-message">
+          <div class="welcome-kicker">A question is a good place to begin.</div>
+          <h3>What are you working<br>through today?</h3>
+          <p>Bring a problem, a half-formed idea, or something that still feels foggy. We will take it one step at a time.</p>
+        </div>
+        <div class="prompt-grid" aria-label="Starter questions">
+          <button class="prompt-chip" type="button" data-prompt="Help me understand this concept step by step.">Understand a concept <span aria-hidden="true">-&gt;</span></button>
+          <button class="prompt-chip" type="button" data-prompt="I am stuck on a problem. Help me find the next step without giving me the answer.">Find the next step <span aria-hidden="true">-&gt;</span></button>
+          <button class="prompt-chip" type="button" data-prompt="Quiz me on a topic and adjust the difficulty as we go.">Practice together <span aria-hidden="true">-&gt;</span></button>
+        </div>
+      </section>
+
+      <form class="composer" id="chat-form">
+        <label class="sr-only" for="message-input">Your question</label>
+        <textarea id="message-input" rows="1" placeholder="Write your question..." autocomplete="off" required></textarea>
+        <div class="composer-footer">
+          <span class="composer-hint">Enter to send / Shift + Enter for a new line</span>
+          <button class="send-button" type="submit">Send <span aria-hidden="true">-&gt;</span></button>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
