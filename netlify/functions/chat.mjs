@@ -21,6 +21,23 @@ function jsonResponse(status, body) {
   });
 }
 
+function validMessages(messages) {
+  return messages.every((message) => {
+    if (!message || !['user', 'assistant'].includes(message.role)) return false;
+    if (typeof message.content === 'string') return message.content.trim().length > 0;
+    if (!Array.isArray(message.content) || message.content.length === 0) return false;
+    return message.content.every((block) => {
+      if (block?.type === 'text') return typeof block.text === 'string';
+      if (block?.type === 'image' || block?.type === 'document') {
+        return block.source?.type === 'base64'
+          && typeof block.source.media_type === 'string'
+          && typeof block.source.data === 'string';
+      }
+      return false;
+    });
+  });
+}
+
 export default async (request) => {
   if (request.method !== 'POST') {
     return jsonResponse(405, { error: 'Method not allowed.' });
@@ -33,8 +50,8 @@ export default async (request) => {
   try {
     const payload = await request.json();
     const messages = payload?.messages;
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return jsonResponse(400, { error: 'At least one message is required.' });
+    if (!Array.isArray(messages) || !messages.length || !validMessages(messages)) {
+      return jsonResponse(400, { error: 'At least one valid message is required.' });
     }
 
     const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });

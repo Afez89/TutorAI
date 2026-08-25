@@ -36,3 +36,7 @@ This project includes a Netlify Function for the Claude API, so the API key stay
 4. Deploy the site.
 
 The frontend continues to call `/api/chat`; Netlify routes that path to `netlify/functions/chat.mjs`.
+
+## Uploads
+
+The chat accepts PNG, JPEG, GIF, and WebP images, PDFs, and text files such as TXT, Markdown, CSV, and JSON. Files are converted into Claude content blocks in the browser and sent through the server-side function; each file is limited to 3 MB.

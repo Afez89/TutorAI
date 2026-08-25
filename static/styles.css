@@ -77,7 +77,15 @@ body::before {
 .composer { padding-top: 18px; border-top: 1px solid var(--line); }
 .composer textarea { display: block; width: 100%; min-height: 48px; max-height: 130px; padding: 12px 0; border: 0; outline: 0; resize: none; color: var(--ink); background: transparent; font: 14px 'Manrope', sans-serif; line-height: 1.7; }
 .composer textarea::placeholder { color: #a3a198; }
+.attachment-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 0 12px; }
+.attachment { display: flex; align-items: center; gap: 8px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 2px; color: var(--muted); background: rgba(255, 253, 248, .7); font: 10px 'DM Mono', monospace; }
+.attachment-remove { border: 0; padding: 0; color: var(--muted); background: transparent; font: 14px 'Manrope', sans-serif; cursor: pointer; }
+.attachment-remove:hover { color: var(--ink); }
 .composer-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+.composer-actions { display: flex; align-items: center; gap: 16px; }
+.attach-button { color: var(--ink); font: 700 11px 'Manrope', sans-serif; cursor: pointer; }
+.attach-button:first-letter { color: var(--lime-dark); font-size: 17px; }
+.attach-button:hover { color: var(--lime-dark); }
 .composer-hint { color: #a3a198; font: 10px 'DM Mono', monospace; }
 .send-button { border: 0; border-radius: 2px; padding: 12px 16px 12px 18px; color: var(--ink); background: var(--lime); font: 700 11px 'Manrope', sans-serif; cursor: pointer; }
 .send-button span { margin-left: 13px; font-family: 'DM Mono', monospace; }
