@@ -23,3 +23,14 @@ print(answer)
 ```
 
 `CLAUDE_MODEL` can override the default model. Never commit a real API key or a populated `.env` file.
+
+## Deploy to Netlify
+
+This project includes a Netlify Function for the Claude API, so the API key stays on the server and is never sent to the browser.
+
+1. In Netlify, choose **Add new project** and import the `Afez89/TutorAI` GitHub repository.
+2. Leave the build command empty. The repository's `netlify.toml` publishes `static/` and configures the function directory.
+3. In **Site configuration > Environment variables**, add `ANTHROPIC_API_KEY` with your current key. Add `CLAUDE_MODEL` with `claude-sonnet-4-6` if you want to set it explicitly.
+4. Deploy the site.
+
+The frontend continues to call `/api/chat`; Netlify routes that path to `netlify/functions/chat.mjs`.
